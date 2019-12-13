@@ -138,7 +138,7 @@ In LWC Jest tests it is common to wrap assertions in a promise. But this nested 
 
 Use async/await instead of Promise's in our previous example:
 ```JavaScript
-import { TestUtils, Simulat } from '@tigerface/lwc-test-utils';
+import { TestUtils, Simulate } from '@tigerface/lwc-test-utils';
 
 ...
 
