@@ -1,3 +1,10 @@
+---
+path: "/blogs/lwc-unit-test-structure"
+title: "LWC Nested Component Testing"
+date: "Dec 18, 2019"
+category: "LWC"
+---
+
 # LWC Unit Test Structure
 
 The goal of this guide is to outline a basic structure of Jest unit test files that minimizes code clutter from things like DOM events, querySelectors, event listeners, etc.
