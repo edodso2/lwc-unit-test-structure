@@ -2,11 +2,11 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "c/input": [
-                "input/input.js"
-            ],
             "c/event": [
                 "event/event.js"
+            ],
+            "c/input": [
+                "input/input.js"
             ]
         },
         "experimentalDecorators": true
