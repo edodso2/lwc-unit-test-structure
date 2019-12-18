@@ -102,7 +102,7 @@ All of the test setup code is abstracted out of the test. This may seem unnecess
 
 ## Using The Simulate Class
 
-Triggering DOM events in each test can quickly clutter up our test file. Triggering a DOM event is often a multiline effort that can easily clutter up a test. The Simulate class from the lwc-test-utils repository can be used to trigger events in a declarative, clutter free and readable method.
+Triggering DOM events in each test can quickly clutter up our test file. Triggering a DOM event is often a multiline effort that can easily clutter up a test. The Simulate class from the [lwc-test-utils](https://github.com/edodso2/lwc-test-utils) repository can be used to trigger events in a declarative, clutter free and readable method.
 
 Here is a test for an input element that must update a tracked value:
 ```JavaScript
@@ -141,14 +141,11 @@ it('updates value when input value is changed', () => {
 ```
 
 ## Async/await Instead of Promise
-In LWC Jest tests it is common to wrap assertions in a promise. But this nested code can be ugly and hard to read. Its better to use a "flushPromises"
-function along with async/await.
+In LWC Jest tests it is common to wrap assertions in a promise. But this nested code can be ugly and hard to read. Its better to use a "flushPromises" function along with async/await. The flush promises function is available on the `TestUtils` object from lwc-test-utils.
 
 Use async/await instead of Promise's in our previous example:
 ```JavaScript
-function flushPromises() {
-  return new Promise(resolve => setImmediate(resolve));
-}
+import { TestUtils, Simulate } from '@tigerface/lwc-test-utils';
 
 ...
 
@@ -158,7 +155,7 @@ it('updates value when input value is changed', async () => {
   // Simulate input value change
   Simulate.inputChange(inputEl, CHANGED_VALUE);
 
-  await flushPromises();
+  await TestUtils.flushPromises();
 
   expect(valueEl.textContent).toBe(CHANGED_VALUE);
 });
